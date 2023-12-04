@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,69 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-color: #222222;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main-container {
+  @apply container mx-auto px-5;
+}
+
+.content-container {
+  min-height: 100vh;
+}
+
+.home-page {
+  background: url('../public/home-background.jpg') top center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.nav__item {
+  @apply font-bold text-rm-lime hover:opacity-80;
+}
+
+.character-img {
+  
+}
+
+.page-title {
+  @apply font-bold text-3xl text-rm-lime text-center;
+}
+
+.episodes-page {
+  background: url('../public/episodes-background.png') top center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.notfound-page {
+  background-color: #222222;
+  min-height: 100vh;
+}
+
+.episode-item {
+  @apply flex items-center gap-5 w-full rounded border bg-rm-mystery hover:opacity-80;
+  max-width: calc((100% - 2 * 20px) / 3);
+}
+
+.active {
+  @apply border-b-[3px] border-rm-lime rounded-sm;
+}
+
+@media (max-width: 640px) {
+  .episode-item {
+    max-width: calc((100% - 20px) / 2);
+  }
+}
+
+.mobile-menu {
+  @apply absolute top-0 right-0 left-0 bottom-0 h-screen px-5 pt-[70px] block sm:hidden;
+  background-color: #222222;
 }
