@@ -9,7 +9,7 @@ function NotFound() {
           404
         </h1>
         <p className="text-4xl text-white text-bold text-center">Sorry, the page not found</p>
-        <Link to="/" className="text-center py-2 px-5 bg-rm-lime rounded-lg">Back to home</Link>
+        <Link to="/" className="text-center py-2 px-5 bg-rm-lime rounded-lg hover:opacity-80">Back to home</Link>
       </div>
     </div>
   );

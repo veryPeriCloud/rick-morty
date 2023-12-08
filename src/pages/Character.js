@@ -16,7 +16,7 @@ console.log(item)
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
-        <Link to="/characters" className="flex items-center gap-1 mb-5 text-rm-yellow">
+        <Link to="/characters" className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
           <svg
             xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -30,7 +30,7 @@ console.log(item)
             />
             <path
               d="M17.6799 21.7069C17.4266 21.7069 17.1732 21.6135 16.9732 21.4135L12.2666 16.7069C11.8799 16.3202 11.8799 15.6802 12.2666 15.2935L16.9732 10.5869C17.3599 10.2002 17.9999 10.2002 18.3866 10.5869C18.7732 10.9735 18.7732 11.6135 18.3866 12.0002L14.3866 16.0002L18.3866 20.0002C18.7732 20.3869 18.7732 21.0269 18.3866 21.4135C18.1999 21.6135 17.9466 21.7069 17.6799 21.7069Z"
-              fill="#ebe480"
+              fill="#fff"
             />
           </svg>
           Back</Link>

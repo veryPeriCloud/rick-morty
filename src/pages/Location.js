@@ -15,7 +15,7 @@ console.log(item)
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
-        <Link to="/locations" className="flex items-center gap-1 mb-5 text-rm-yellow">
+        <Link to="/locations" className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
           <svg
             xmlns="http://www.w3.org/2000/svg"
               width="32"
