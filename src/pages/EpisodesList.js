@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import Episodes from "../assets/episode.json";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function EpisodesList() {
   const episodeItems = Episodes.map(episode =>
@@ -14,10 +15,11 @@ function EpisodesList() {
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
         <h1 className="page-title mb-6">Episodes</h1>
-        
-        <ul className="flex gap-5 flex-wrap">
-          {episodeItems}
-        </ul>
+        <ErrorBoundary>
+          <ul className="flex gap-5 flex-wrap">
+            {episodeItems}
+          </ul>
+        </ErrorBoundary>
       </div>
     </div>
   );

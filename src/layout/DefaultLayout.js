@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router-dom';
-// import Header from '../components/Header.js';
+import { Loading } from '../components/Loading.js';
 import { AuthStatus } from '../components/AuthStatus.js';
 import { NavLink } from "react-router-dom";
 import {useToggle} from "../composables/useToggle.js"
+import { Suspense } from 'react';
 
 function DefaultLayout() {
   const [state, setState] = useToggle(true);
@@ -67,8 +68,9 @@ function DefaultLayout() {
           </button>
         </div>
       </div>
-      {/* <Header /> */}
-      <Outlet />
+      <Suspense fallback={<Loading />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

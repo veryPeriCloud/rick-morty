@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import Episodes from "../assets/episode.json";
+import ErrorBoundary from "../components/ErrorBoundary";
 import dayjs from "dayjs";
 
 function Episode() {
@@ -31,11 +32,14 @@ function Episode() {
               fill="#ebe480"
             />
           </svg>
-          Back</Link>
-        <h1 className="page-title mb-6">{item.name}</h1>
-        <p className="text-rm-yellow">Date: {item.air_date}</p>
-        <p className="text-rm-yellow">Episode: {item.episode}</p>
-        <p className="text-rm-yellow">Created: {createdAt}</p>
+          Back
+        </Link>
+        <ErrorBoundary>
+          <h1 className="page-title mb-6">{item.name}</h1>
+          <p className="text-rm-yellow">Date: {item.air_date}</p>
+          <p className="text-rm-yellow">Episode: {item.episode}</p>
+          <p className="text-rm-yellow">Created: {createdAt}</p>
+        </ErrorBoundary>
       </div>
     </div>
   );

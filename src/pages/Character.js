@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import Characters from "../assets/characters.json";
+import ErrorBoundary from "../components/ErrorBoundary";
 import dayjs from "dayjs";
 
 function Character() {
@@ -33,21 +34,25 @@ console.log(item)
               fill="#fff"
             />
           </svg>
-          Back</Link>
-        <div className="flex gap-5">
-          <img
-            src={item.image}
-            alt={item.name}
-          />
+          Back
+        </Link>
+        <ErrorBoundary>
+          
+          <div className="flex gap-5">
+            <img
+              src={item.image}
+              alt={item.name}
+            />
 
-          <div>
-            <h1 className="text-rm-yellow">Name: {item.name}</h1>
-            <p className="text-rm-yellow">Gender: {item.gender}</p>
-            <p className="text-rm-yellow">Species: {item.species}</p>
-            <p className="text-rm-yellow">Status: {item.status}</p>
-            <p className="text-rm-yellow">Created: {createdAt}</p>
+            <div>
+              <h1 className="text-rm-yellow">Name: {item.name}</h1>
+              <p className="text-rm-yellow">Gender: {item.gender}</p>
+              <p className="text-rm-yellow">Species: {item.species}</p>
+              <p className="text-rm-yellow">Status: {item.status}</p>
+              <p className="text-rm-yellow">Created: {createdAt}</p>
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </div>
     </div>
   );

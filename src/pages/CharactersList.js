@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Characters from "../assets/characters.json";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function CharactersList() {
 
@@ -20,7 +21,9 @@ function CharactersList() {
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
       <h1 className="page-title">Characters</h1>
+      <ErrorBoundary>
         <ul className="flex flex-col pt-10 gap-6">{characterItems}</ul>
+      </ErrorBoundary>
       </div>
     </div>
   );

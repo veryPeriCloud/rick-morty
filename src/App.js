@@ -1,17 +1,22 @@
 import './App.css';
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.js";
-import CharactersList from "./pages/CharactersList.js";
-import Character from "./pages/Character.js";
-import EpisodesList from './pages/EpisodesList.js';
-import Episode from './pages/Episode.js';
-import LocationsList from './pages/LocationsList.js';
-import Location from './pages/Location.js';
 import DefaultLayout from './layout/DefaultLayout.js';
-import NotFound from './pages/NotFound.js';
-import {Login} from './pages/Login.js';
 import { AuthProvider } from './context/AuthProvider.js';
 import { PrivateRoute } from './components/PrivateRoute.js';
+
+const Home = lazy(() => import('./pages/Home'));
+const CharactersList = lazy(() => import("./pages/CharactersList"));
+const Character = lazy(() => import("./pages/Character"));
+const EpisodesList = lazy(() => import("./pages/EpisodesList"));
+const Episode = lazy(() => import("./pages/Episode"));
+const LocationsList = lazy(() => import("./pages/LocationsList"));
+const Location = lazy(() => import("./pages/Location"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Login = lazy(() => import("./pages/Login").then(module => ({
+  default: module.Login
+})))
+
 
 function App() {
   return (

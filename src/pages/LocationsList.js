@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Locations from "../assets/location.json";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function LocationsList() {
   const locationItems = Locations.map(loc =>
@@ -13,7 +14,9 @@ function LocationsList() {
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
         <h1 className="page-title mb-6">Locations</h1>
-        {locationItems}
+        <ErrorBoundary>
+          {locationItems}
+        </ErrorBoundary>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import Locations from "../assets/location.json";
 import dayjs from "dayjs";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function Location() {
 
@@ -32,11 +33,14 @@ console.log(item)
               fill="#ebe480"
             />
           </svg>
-          Back</Link>
-        <h1 className="page-title mb-6">{item.name}</h1>
-        <p className="text-rm-yellow">Type: {item.type}</p>
-        <p className="text-rm-yellow">Dimension: {item.dimension}</p>
-        <p className="text-rm-yellow">Created: {createdAt}</p>
+          Back
+        </Link>
+        <ErrorBoundary>
+          <h1 className="page-title mb-6">{item.name}</h1>
+          <p className="text-rm-yellow">Type: {item.type}</p>
+          <p className="text-rm-yellow">Dimension: {item.dimension}</p>
+          <p className="text-rm-yellow">Created: {createdAt}</p>
+        </ErrorBoundary>
       </div>
     </div>
   );
