@@ -10,19 +10,23 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    console.log("error", error)
+    console.log("getDerivedStateFromError error", error.message)
     return {
       hasError: true,
     }
   }
   componentDidCatch(error, errorInfo) {
-    console.log("error", error);
-    console.log("errorInfo", errorInfo)
+    console.error("error", error.message);
+    console.error("errorInfo", errorInfo)
   }
 
   render() {
     if (this.state.hasError) {
-      return <h4>Что-то пошло не так</h4>
+      return (
+        <div className="flex justify-center items-center min-h-screen w-full">
+          <h4 className="font-bold text-2xl text-red-400">Что-то пошло не так!</h4>
+        </div>
+      )      
     }
     return this.props.children;
   }

@@ -1,23 +1,20 @@
-import { Link, useParams } from "react-router-dom";
-import Characters from "../assets/characters.json";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ErrorBoundary from "../components/ErrorBoundary";
+import {useFetchItem} from "../hooks/useFetchItem";
 import dayjs from "dayjs";
 
-function Character() {
-
+function Item() {
   const params = useParams();
   const id = +params.id;
-  const item = Characters.find(item => {
-    return item.id === id
-  });
+  const { item } = useFetchItem(`https://rickandmortyapi.com/api/character/${id}`);
   const createdAt = dayjs(item.created).format('DD.MM.YYYY HH:mm');
 
-console.log(item)
+  const location = useLocation();
 
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
-        <Link to="/characters" className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
+        <Link to={location.state} className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
           <svg
             xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -36,26 +33,31 @@ console.log(item)
           </svg>
           Back
         </Link>
-        <ErrorBoundary>
-          
-          <div className="flex gap-5">
-            <img
-              src={item.image}
-              alt={item.name}
-            />
+        <div className="flex gap-5">
+          <img
+            src={item.image}
+            alt={item.name}
+          />
 
-            <div>
-              <h1 className="text-rm-yellow">Name: {item.name}</h1>
-              <p className="text-rm-yellow">Gender: {item.gender}</p>
-              <p className="text-rm-yellow">Species: {item.species}</p>
-              <p className="text-rm-yellow">Status: {item.status}</p>
-              <p className="text-rm-yellow">Created: {createdAt}</p>
-            </div>
+          <div>
+            <h1 className="text-rm-yellow">Name: {item.name}</h1>
+            <p className="text-rm-yellow">Gender: {item.gender}</p>
+            <p className="text-rm-yellow">Species: {item.species}</p>
+            <p className="text-rm-yellow">Status: {item.status}</p>
+            <p className="text-rm-yellow">Created: {createdAt}</p>
           </div>
-        </ErrorBoundary>
+        </div>
       </div>
     </div>
   );
+}
+
+function Character() {
+  return (
+    <ErrorBoundary>
+      <Item />
+    </ErrorBoundary>
+  )
 }
 
 export default Character;

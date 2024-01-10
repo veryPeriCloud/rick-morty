@@ -1,18 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import Locations from "../assets/location.json";
-import dayjs from "dayjs";
 import ErrorBoundary from "../components/ErrorBoundary";
+import {useFetchItem} from "../hooks/useFetchItem";
+import dayjs from "dayjs";
 
-function Location() {
+function Item() {
 
   const params = useParams();
   const id = +params.id;
-  const item = Locations.find(item => {
-    return item.id === id
-  });
+  const {item, loading} = useFetchItem(`https://rickandmortyapi.com/api/location/${id}`);
   const createdAt = dayjs(item.created).format('DD.MM.YYYY HH:mm');
 
-console.log(item)
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
@@ -35,15 +32,24 @@ console.log(item)
           </svg>
           Back
         </Link>
-        <ErrorBoundary>
+        {loading &&
+          <p>Loading</p>
+        }
           <h1 className="page-title mb-6">{item.name}</h1>
           <p className="text-rm-yellow">Type: {item.type}</p>
           <p className="text-rm-yellow">Dimension: {item.dimension}</p>
           <p className="text-rm-yellow">Created: {createdAt}</p>
-        </ErrorBoundary>
       </div>
     </div>
   );
+}
+
+function Location() {
+  return (
+    <ErrorBoundary>
+      <Item />
+    </ErrorBoundary>
+  )
 }
 
 export default Location;

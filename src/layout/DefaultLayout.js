@@ -68,7 +68,7 @@ function DefaultLayout() {
           </button>
         </div>
       </div>
-      <Suspense fallback={<Loading />}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </div>

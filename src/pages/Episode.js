@@ -1,21 +1,21 @@
-import { Link, useParams } from "react-router-dom";
-import Episodes from "../assets/episode.json";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ErrorBoundary from "../components/ErrorBoundary";
+import {useFetchItem} from "../hooks/useFetchItem";
 import dayjs from "dayjs";
 
-function Episode() {
+function Item() {
 
+  const location = useLocation();
   const params = useParams();
   const id = +params.id;
-  const item = Episodes.find(item => {
-    return item.id === id
-  });
+
+  const {item, loading} = useFetchItem(`https://rickandmortyapi.com/api/episode/${id}`);
   const createdAt = dayjs(item.created).format('DD.MM.YYYY HH:mm');
 
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
-        <Link to="/episodes" className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
+        <Link to={location.state} className="flex items-center gap-1 mb-5 text-rm-yellow hover:opacity-80">
           <svg
             xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -34,16 +34,28 @@ function Episode() {
           </svg>
           Back
         </Link>
-        <ErrorBoundary>
-          <h1 className="page-title mb-6">{item.name}</h1>
-          <p className="text-rm-yellow">Date: {item.air_date}</p>
-          <p className="text-rm-yellow">Episode: {item.episode}</p>
-          <p className="text-rm-yellow">Created: {createdAt}</p>
-        </ErrorBoundary>
+        {loading 
+          ? <p>Loading</p>
+          : <div>
+              <h1 className="page-title mb-6">{item.name}</h1>
+              <p className="text-rm-yellow">Date: {item.air_date}</p>
+              <p className="text-rm-yellow">Episode: {item.episode}</p>
+              <p className="text-rm-yellow">Created: {createdAt}</p> 
+            </div>
+          
+        }
+
+               
       </div>
     </div>
   );
 }
-
+function Episode() {
+  return (
+    <ErrorBoundary>
+      <Item />
+    </ErrorBoundary>
+  )
+}
 export default Episode;
   
