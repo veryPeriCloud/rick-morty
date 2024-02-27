@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 
-export function AuthStatus({}) {
+export function AuthStatus() {
   const auth = useAuth();
   const navigate = useNavigate();
 

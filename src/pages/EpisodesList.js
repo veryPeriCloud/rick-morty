@@ -1,24 +1,19 @@
 
 import ErrorBoundary from "../components/ErrorBoundary";
-import { useGetList } from "../hooks/useGetList";
+import { EpisodeList } from "../components/Episode/EpisodeList";
 
-function List() {
-  const list = useGetList("https://rickandmortyapi.com/api/episode", "episodes");
-  return list;
-}
-
-function EpisodesList() {
+function PageEpisodesList() {
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
         <h1 className="page-title mb-6">Episodes</h1>
         <ErrorBoundary>
-          <List />
+          <EpisodeList />
         </ErrorBoundary>
       </div>
     </div>
   );
 }
 
-export default EpisodesList;
+export default PageEpisodesList;
   

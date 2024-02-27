@@ -31,7 +31,7 @@ export function useFetchList(url, pageNumber) {
       setMessage(e.message)
       console.error(e.message);
     })
-  }, [pageNumber]);
+  }, [pageNumber, url]);
 
   return {
     loading,

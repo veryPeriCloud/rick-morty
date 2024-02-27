@@ -15,7 +15,7 @@ const Signin = forwardRef(function Signin({ onSubmit }, ref) {
   };
 
   return (
-    <>
+    <div>
       <h1 className="header text-3xl font-bold">Auth</h1>
       <form className="form shadow"
         onChange={onChange}
@@ -48,7 +48,7 @@ const Signin = forwardRef(function Signin({ onSubmit }, ref) {
           Sign in
         </button>
       </form>    
-    </>
+    </div>
   )
 });
 

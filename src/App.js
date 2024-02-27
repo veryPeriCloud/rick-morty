@@ -13,9 +13,7 @@ const Episode = lazy(() => import("./pages/Episode"));
 const LocationsList = lazy(() => import("./pages/LocationsList"));
 const Location = lazy(() => import("./pages/Location"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Login = lazy(() => import("./pages/Login").then(module => ({
-  default: module.Login
-})))
+const Login = lazy(() => import("./pages/Login"));
 
 
 function App() {

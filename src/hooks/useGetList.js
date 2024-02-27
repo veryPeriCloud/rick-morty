@@ -1,6 +1,7 @@
 import {useState, useRef, useCallback} from "react";
 import { Link, useLocation } from "react-router-dom";
 import {useFetchList} from "../hooks/useFetchList";
+import {Loading} from "../components/Loading";
 
 export function useGetList(url, category) {
 	const [pageNumber, setPageNumber] = useState(1);
@@ -26,7 +27,7 @@ export function useGetList(url, category) {
   }, [loading, hasMore]);
 
 	const items = list.map((item, index) => {
-		if (list.length - 5 === index + 1) {
+    if (list.length - 5 === index + 1) {
       return <li key={item.id} ref={lastNodeRef} className="flex items-center gap-5">
         <Link to={`/${category}/${item.id}`} className="text-rm-lime font-medium hover:opacity-80 transition">
           {item.name}
@@ -52,7 +53,7 @@ export function useGetList(url, category) {
 					items
 				}
 			</ul>
-			{ loading && <div className="pt-3 text-red-200">Loading...</div> }
+			{ loading && <Loading />}
 			{ error && <div className="pt-10 text-red-500">{message}</div> }
 		</div>
   );

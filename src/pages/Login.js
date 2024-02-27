@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useAuth } from "../context/AuthProvider";
 import Signin from "../components/Signin";
 
-export function Login() {
+function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const auth = useAuth();
@@ -32,3 +32,5 @@ export function Login() {
     </div>
   )
 }
+
+export default Login;

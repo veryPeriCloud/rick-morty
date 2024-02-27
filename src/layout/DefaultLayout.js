@@ -1,12 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { Loading } from '../components/Loading.js';
 import { AuthStatus } from '../components/AuthStatus.js';
 import { NavLink } from "react-router-dom";
 import {useToggle} from "../composables/useToggle.js"
 import { Suspense } from 'react';
 
 function DefaultLayout() {
-  const [state, setState] = useToggle(true);
+  const [isShow, setIsShow] = useToggle(true);
 
   return (
     <div className="">
@@ -32,7 +31,7 @@ function DefaultLayout() {
           
           <AuthStatus/>
 
-          {!state && <div className="mobile-menu" onClick={() => setState()}>
+          {!isShow && <div className="mobile-menu" onClick={() => setIsShow()}>
             <nav className="">
               <ul className="flex flex-col gap-5">
                 <li className="nav__item">
@@ -52,17 +51,17 @@ function DefaultLayout() {
           </div> }
 
           <button className="block sm:hidden z-50"
-            onClick={() => setState()}
+            onClick={() => setIsShow()}
           >
-            {state ?
+            {isShow ?
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-              <path d="M17 1L1 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M17 7L1 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M17 13L1 13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M17 1L1 1" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M17 7L1 7" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M17 13L1 13" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
             :
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M6.11936 6L18 18M17.8806 6L6 18" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M6.11936 6L18 18M17.8806 6L6 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
             }
           </button>

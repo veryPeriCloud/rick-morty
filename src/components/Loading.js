@@ -1,4 +1,4 @@
-export function Loading({}) {
+export function Loading() {
   return (
     <div>
       <div className="main-container pt-[72px]">
