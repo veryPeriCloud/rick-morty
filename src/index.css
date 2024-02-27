@@ -75,3 +75,11 @@ code {
   @apply absolute top-0 right-0 left-0 bottom-0 h-screen px-5 pt-[70px] block sm:hidden;
   background-color: #222222;
 }
+
+
+.login-page {
+  background: url('../public/login.jpg') top center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px 0;
+}
