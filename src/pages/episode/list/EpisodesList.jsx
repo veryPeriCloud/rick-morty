@@ -1,6 +1,6 @@
 
-import ErrorBoundary from "../components/ErrorBoundary";
-import { EpisodeList } from "../components/Episode/EpisodeList";
+import {ErrorBoundary} from "../../../components/ErrorBoundary/ErrorBoundary";
+import { EpisodeList } from "../../../components/Episode/EpisodeList";
 
 function PageEpisodesList() {
   return (

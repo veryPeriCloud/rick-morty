@@ -1,8 +1,7 @@
-// import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {useToggle} from "../composables/useToggle.js"
 
-function Header() {
+export function Header() {
   const [state, setState] = useToggle(true);
 
   return (
@@ -65,6 +64,4 @@ function Header() {
     </>
   );
 }
-
-export default Header;
   

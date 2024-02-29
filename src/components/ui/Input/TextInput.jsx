@@ -1,6 +1,6 @@
 import { IconAt } from '@tabler/icons-react';
 
-export default function TextInput(props) {
+export function TextInput(props) {
   return (
     <label className="form-control">
       <div>

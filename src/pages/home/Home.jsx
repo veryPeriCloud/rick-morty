@@ -1,4 +1,4 @@
-function Home() {
+export default function Home() {
   return (
     <div className="home-page">
       <div className="main-container pt-[72px] content-container flex items-center justify-center">
@@ -7,5 +7,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

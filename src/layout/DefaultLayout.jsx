@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { AuthStatus } from '../components/AuthStatus.js';
+import { AuthStatus } from '../components/AuthStatus';
 import { NavLink } from "react-router-dom";
-import {useToggle} from "../composables/useToggle.js"
+import {useToggle} from "../composables/useToggle"
 import { Suspense } from 'react';
 
-function DefaultLayout() {
+export function DefaultLayout() {
   const [isShow, setIsShow] = useToggle(true);
 
   return (
@@ -74,5 +74,4 @@ function DefaultLayout() {
   );
 }
 
-export default DefaultLayout;
   
