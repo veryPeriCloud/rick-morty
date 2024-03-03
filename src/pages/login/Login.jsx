@@ -1,7 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import { useAuth } from "../../context/AuthProvider";
-import { Signin } from "../../components/Signin";
+import { useAuth } from "~/context/AuthProvider";
+import { Signin } from "~/components/Signin";
+import './style.css';
 
 function Login() {
   const navigate = useNavigate();

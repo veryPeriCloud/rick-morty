@@ -1,5 +1,5 @@
 {
-  "name": "forms",
+  "name": "rick-and-morty",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,14 +13,12 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "4.0.12",
     "react-router-dom": "6.20.1",
-    "react-scripts": "5.0.1",
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +39,10 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "3.3.5"
+    "@vitejs/plugin-react": "4.2.1",
+    "autoprefixer": "^10.4.18",
+    "postcss": "8.4.35",
+    "tailwindcss": "3.3.5",
+    "vite": "5.1.4"
   }
 }

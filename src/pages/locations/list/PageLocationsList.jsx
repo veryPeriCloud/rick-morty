@@ -1,7 +1,7 @@
 import {ErrorBoundary} from "../../../components/ErrorBoundary/ErrorBoundary";
 import { LocationList } from "../../../components/Location/LocationList";
 
-function LocationsList() {
+function PageLocationsList() {
   return (
     <div className="episodes-page">
       <div className="main-container pt-[72px]">
@@ -14,5 +14,5 @@ function LocationsList() {
   );
 }
 
-export default LocationsList;
+export default PageLocationsList;
   

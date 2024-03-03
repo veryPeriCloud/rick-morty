@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { DefaultLayout } from '../layout/DefaultLayout';
-import { PrivateRoute } from '../components/PrivateRoute';
+import { DefaultLayout } from '~/layout/DefaultLayout';
+import { PrivateRoute } from '~/components/PrivateRoute';
 import { Home } from './home';
 import { Login } from './login';
 import { NotFound } from './notfound';
-import { Character } from './character/detail';
-import { CharactersList } from './character/list';
-import { Episode } from './episode/detail';
-import { EpisodesList } from './episode/list';
-import { Location } from './location/detail';
-import { LocationsList } from './location/list';
+import { Character } from './characters/detail';
+import { PageCharactersList } from './characters/list';
+import { Episode } from './episodes/detail';
+import { PageEpisodesList } from './episodes/list';
+import { Location } from './locations/detail';
+import { PageLocationsList } from './locations/list';
 
 export function Pages() {
   return (
@@ -17,15 +17,15 @@ export function Pages() {
         <Route element={<DefaultLayout/>}>
           <Route path="/" element={<Home />} />
           <Route path="/characters">
-            <Route index element={<PrivateRoute><CharactersList /></PrivateRoute>} />
+            <Route index element={<PrivateRoute><PageCharactersList /></PrivateRoute>} />
             <Route path=":id" element={<PrivateRoute><Character /></PrivateRoute>} />
           </Route>
           <Route path="/episodes">
-            <Route index element={<PrivateRoute><EpisodesList /></PrivateRoute>} />
+            <Route index element={<PrivateRoute><PageEpisodesList /></PrivateRoute>} />
             <Route path=":id" element={<PrivateRoute><Episode /></PrivateRoute>} />
           </Route>
           <Route path="/locations">
-            <Route index element={<PrivateRoute><LocationsList /></PrivateRoute>} />
+            <Route index element={<PrivateRoute><PageLocationsList /></PrivateRoute>} />
             <Route path=":id" element={<PrivateRoute><Location /></PrivateRoute>} />
           </Route>
           <Route path="*" element={<NotFound />} />

@@ -1,11 +1,12 @@
 import { Link, useLocation, useParams } from "react-router-dom";
-import {useFetchItem} from "../../hooks/useFetchItem";
+import {useFetchItem} from "~/hooks/useFetchItem";
+import {Loading} from "~/components/ui/Loading";
 import dayjs from "dayjs";
 
 export function CharacterItem() {
   const params = useParams();
   const id = +params.id;
-  const { item } = useFetchItem(`https://rickandmortyapi.com/api/character/${id}`);
+  const { item, loading } = useFetchItem(`https://rickandmortyapi.com/api/character/${id}`);
   const createdAt = dayjs(item.created).format('DD.MM.YYYY HH:mm');
 
   const location = useLocation();
@@ -33,6 +34,9 @@ export function CharacterItem() {
           Back
         </Link>
         <div className="flex gap-5">
+          {loading &&
+            <Loading />
+          }
           <img
             src={item.image}
             alt={item.name}

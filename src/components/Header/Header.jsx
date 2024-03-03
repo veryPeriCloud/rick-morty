@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import {useToggle} from "../composables/useToggle.js"
+import {useToggle} from "~/composables/useToggle.js"
 
 export function Header() {
   const [state, setState] = useToggle(true);

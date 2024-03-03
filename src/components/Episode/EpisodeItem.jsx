@@ -1,6 +1,6 @@
 import { Link, useLocation, useParams } from "react-router-dom";
-import {useFetchItem} from "../../hooks/useFetchItem";
-import {Loading} from "../ui/Loading";
+import {useFetchItem} from "~/hooks/useFetchItem";
+import {Loading} from "~/components/ui/Loading";
 import dayjs from "dayjs";
 
 export function EpisodeItem() {

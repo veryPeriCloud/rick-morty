@@ -1,6 +1,6 @@
 import {useState, useRef, useCallback} from "react";
 import { Link, useLocation } from "react-router-dom";
-import {useFetchList} from "../../hooks/useFetchList";
+import {useFetchList} from "~/hooks/useFetchList";
 
 export function CharacterList() {
   const [pageNumber, setPageNumber] = useState(1);
