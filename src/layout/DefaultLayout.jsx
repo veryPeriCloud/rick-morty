@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { AuthStatus } from '../components/AuthStatus';
+import { AuthStatus } from 'src/components/AuthStatus';
 import { NavLink } from "react-router-dom";
-import {useToggle} from "../composables/useToggle"
+import {useToggle} from "src/composables/useToggle"
 import { Suspense } from 'react';
 
 export function DefaultLayout() {

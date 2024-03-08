@@ -1,13 +1,11 @@
-import { AuthProvider } from '~/context/AuthProvider';
-import { Pages } from '~/pages';
-import '~/App.css';
+import { AuthProvider } from 'src/context/AuthProvider';
+import { Pages } from 'src/pages';
+import './App.css';
 
-function App() {
+export const App = () => {
   return (
     <AuthProvider>
       <Pages />
     </AuthProvider>
   );
 }
-
-export default App;

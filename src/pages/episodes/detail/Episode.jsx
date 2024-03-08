@@ -1,5 +1,5 @@
-import {ErrorBoundary} from "~/components/ErrorBoundary/ErrorBoundary";
-import { EpisodeItem } from "~/components/Episode/EpisodeItem";
+import {ErrorBoundary} from "src/components/ErrorBoundary/ErrorBoundary";
+import { EpisodeItem } from "src/components/Episode/EpisodeItem";
 
 function Episode() {
   return (

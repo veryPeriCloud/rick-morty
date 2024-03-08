@@ -1,5 +1,5 @@
-import { ErrorBoundary } from "~/components/ErrorBoundary/ErrorBoundary";
-import { CharacterList } from "~/components/Character/CharacterList";
+import { ErrorBoundary } from "src/components/ErrorBoundary/ErrorBoundary";
+import { CharacterList } from "src/components/Character/CharacterList";
 
 function PageCharactersList() { 
   return (

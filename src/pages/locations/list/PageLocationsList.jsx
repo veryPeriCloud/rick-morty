@@ -1,5 +1,5 @@
-import {ErrorBoundary} from "../../../components/ErrorBoundary/ErrorBoundary";
-import { LocationList } from "../../../components/Location/LocationList";
+import {ErrorBoundary} from "src/components/ErrorBoundary/ErrorBoundary";
+import { LocationList } from "src/components/Location/LocationList";
 
 function PageLocationsList() {
   return (

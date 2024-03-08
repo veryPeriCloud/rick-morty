@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { DefaultLayout } from '~/layout/DefaultLayout';
-import { PrivateRoute } from '~/components/PrivateRoute';
+import { DefaultLayout } from 'src/layout/DefaultLayout';
+import { PrivateRoute } from 'src/components/PrivateRoute';
 import { Home } from './home';
 import { Login } from './login';
 import { NotFound } from './notfound';

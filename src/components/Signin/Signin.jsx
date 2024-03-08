@@ -1,5 +1,5 @@
 import { useState, forwardRef } from 'react';
-import { TextInput } from "~/components/ui/Input";
+import { TextInput } from "src/components/ui/Input";
 
 const Signin = forwardRef(function Signin({ onSubmit }, ref) {
   const [inputs, setInputs ] = useState({

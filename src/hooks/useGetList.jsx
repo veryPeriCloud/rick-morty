@@ -1,7 +1,7 @@
 import {useState, useRef, useCallback} from "react";
 import { Link, useLocation } from "react-router-dom";
-import {useFetchList} from "~/hooks/useFetchList";
-import {Loading} from "~/components/ui/Loading";
+import {useFetchList} from "src/hooks/useFetchList";
+import {Loading} from "src/components/ui/Loading";
 
 export function useGetList(url, category) {
 	const [pageNumber, setPageNumber] = useState(1);

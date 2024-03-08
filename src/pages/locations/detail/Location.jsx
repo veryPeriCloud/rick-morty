@@ -1,5 +1,5 @@
-import {ErrorBoundary} from "~/components/ErrorBoundary/ErrorBoundary";
-import { LocationItem } from "~/components/Location/LocationItem";
+import {ErrorBoundary} from "src/components/ErrorBoundary/ErrorBoundary";
+import { LocationItem } from "src/components/Location/LocationItem";
 
 function Location() {
   return (
