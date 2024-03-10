@@ -16,7 +16,7 @@ export function AuthStatus() {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-start sm:items-center gap-2 flex-col sm:flex-row">
       <div className="text-rm-yellow font-bold">
         {auth.user}
       </div>
