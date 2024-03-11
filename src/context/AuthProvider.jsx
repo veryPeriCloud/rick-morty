@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, startTransition, Suspense } from "react";
+import { Loading } from 'src/components/ui/Loading';
 
 const AuthContext = createContext(null);
 
@@ -9,16 +10,20 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => localStorage.getItem("user") || null);
 
-  const signin = (newUser, callback) => {
-    setUser(newUser);
-    localStorage.setItem("user", newUser);
-    callback();
+  const signin = (newUser, callback) => {    
+    startTransition(() => {
+      setUser(newUser);
+      localStorage.setItem("user", newUser);
+      callback();
+    })
   }
 
   const signout = (callback) => {
-    setUser(null);
-    localStorage.removeItem("user");
-    callback();
+    startTransition(() => {
+      setUser(null);
+      localStorage.removeItem("user");
+      callback();
+    })
   }
 
   const value = {
@@ -28,8 +33,10 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={value}>
-      { children }
-    </AuthContext.Provider>
+    <Suspense fallback={<Loading />}>
+      <AuthContext.Provider value={value}>
+        { children }
+      </AuthContext.Provider>
+    </Suspense>
   )
 }

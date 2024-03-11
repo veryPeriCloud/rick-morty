@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import { AuthStatus } from 'src/components/AuthStatus';
 import { NavLink } from "react-router-dom";
-import {useToggle} from "src/composables/useToggle"
+import { useToggle } from "src/composables/useToggle"
 import { Suspense } from 'react';
+import { Loading } from 'src/components/ui/Loading';
 
 export function DefaultLayout() {
   const [isShow, setIsShow] = useToggle(true);
 
   return (
-    <div className="">
+    <div>
       <div className="absolute top-0 left-0 right-0 py-6">
         <div className="main-container flex justify-between items-center ">
           <p className="font-bold text-rm-yellow">Rick and Morty</p>
@@ -72,7 +73,7 @@ export function DefaultLayout() {
           </button>
         </div>
       </div>
-      <Suspense>
+      <Suspense fallback={<Loading />}>
         <Outlet />
       </Suspense>
     </div>
